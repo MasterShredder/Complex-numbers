@@ -1,0 +1,56 @@
+body {
+	background: #eee;
+}
+
+dd {
+	margin: 0;
+}
+
+.main-title {
+	text-align: center;
+	padding: 15px;
+	margin: 7% auto 0 auto;
+	line-height: 1.4em;
+}
+
+.main-content {
+	text-align: center;
+	padding: 30px;
+	margin: 0 auto;
+	width: 420px;
+	background: indigo;
+}
+
+.content {
+	padding: 16px 0;
+	background: aqua;
+}
+
+.inline {
+	display: inline-block;
+	padding: 0 8px;
+}
+
+.input-button {
+	width: 77px;
+}
+
+.op-button {
+	width: 22px;
+}
+
+.calc-button {
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.result {
+	color: red;
+	font-size: 1.4em;
+}
+
+@media (max-width: 520px) {
+	.main-content {
+		width: auto;
+	}
+}

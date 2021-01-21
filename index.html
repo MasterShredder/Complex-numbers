@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+	<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Операции с комплексными числами</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div class="main-title">
+			Введите числа в формате "a+bi" и нажмите "Посчитать!"
+			<br />
+			Доступны 4 вида операций: +, -, * и /
+		</div>
+		<div class="main-content">
+			<div class="content">
+				<dl class="inline">
+					<dt>Число 1:</dt>
+					<dd><input type="text" tabindex="1" name="number_1" id="number_1" size="10" value="" class="input-button" autofocus /></dd>
+				</dl>
+				<dl class="inline">
+					<dt>Операция:</dt>
+					<dd><input type="text" tabindex="2" name="operation" id="operation" size="1" maxlength="1" value="" class="op-button" /></dd>
+				</dl>
+				<dl class="inline">
+					<dt>Число 2:</dt>
+					<dd><input type="text" tabindex="3" name="number_2" id="number_2" size="10" value="" class="input-button" /></dd>
+				</dl>
+				<button id="sendAjax" tabindex="4" class="calc-button">Посчитать!</button>
+				<div>
+					Результат: <div id="result" class="result inline"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+		$("#sendAjax").click(function(event) {
+			event.preventDefault();
+			$("#result").text('Вычисляю...');
+			$.ajax({
+				type: "POST",
+				url: 'calculate.php',
+				data:
+				{
+					number_1: $('#number_1').val(),
+					operation: $('#operation').val(),
+					number_2: $('#number_2').val()
+				},
+				success:function(html) {
+					$("#result").text(html);
+				}
+			});
+		});
+		</script>
+	</body>
+</html>
