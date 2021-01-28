@@ -26,7 +26,7 @@ class complex_numbers
 
 		$regexp = "/^(-?\d*(?:\.\d+)?)?([+-]?(\d*(?:\.\d+)?)i)?$/Ui";
 
-		// Èñïîëüçóåòñÿ preg_match_all âìåñòî preg_match, ÷òîáû â ìàññèâàõ âñåäà áûëî îäèíàêîâîå ÷èñëî ıëåìåíòîâ.
+		// Ğ˜ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒĞµÑ‚ÑÑ preg_match_all Ğ²Ğ¼ĞµÑÑ‚Ğ¾ preg_match, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ² Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°Ñ… Ğ²ÑĞµĞ´Ğ° Ğ±Ñ‹Ğ»Ğ¾ Ğ¾Ğ´Ğ¸Ğ½Ğ°ĞºĞ¾Ğ²Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ².
 		preg_match_all($regexp, $this->number_1, $match_1);
 		preg_match_all($regexp, $this->number_2, $match_2);
 
@@ -99,15 +99,15 @@ class complex_numbers
 			break;
 		}
 
-		$imaginary = ($this->real) ? sprintf('%+g', $this->imaginary) . 'i' : $this->imaginary . 'i';
+		$imaginary = sprintf('%' . (($this->real) ? '+' : '') . 'gi', $this->imaginary);
 
 		if (abs($this->imaginary) == 1)
 		{
 			$imaginary = str_replace('1', '', $imaginary);
 		}
 
-		$number = (($this->real) ? (float) sprintf('%g', $this->real) : '') . (($this->imaginary) ? $imaginary : '');
+		$number = (($this->real) ? sprintf('%g', $this->real) : '') . (($this->imaginary) ? $imaginary : '');
 
-		print ($number) ? $number : 0;
+		return ($number) ? $number : 0;
 	}
 }
